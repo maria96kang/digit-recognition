@@ -4,18 +4,25 @@ Handwritten Digit Recognition written in Javascript using Convolutional Neural N
 
 ## Getting Started 
 
-
+### Installing
+```
+npm install
+```
 ## Deployment
 
-To deploy: 
+To deploy and run the server: 
 ```
 node app.js
 ```
 
 ## Built With
 * convnetjs
-* expressjs
-* nodejs
-* Reactjs
+* express - 
+* node - 
+* React -
+
+## Author
+
+## Acknowledgments 
 
 
