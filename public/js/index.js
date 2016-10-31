@@ -91,6 +91,7 @@ var DigitRecognizer = React.createClass({
 				<div className="clear-button" onClick={this.clearCanvas}>
 					Clear
 				</div>
+				<div className="result">Result: {this.state.digit}</div>
 			</div>
 		);
 	}
