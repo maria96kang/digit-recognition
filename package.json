@@ -1,9 +1,9 @@
 {
 	"name": "digit-recognition",
 	"version": "0.0.1",
-	"description": "Handwritten digit recognition in Javascript using Convolutional Neural Networks",
+	"description": "Handwritten Digit Recognition in Javascript using Convolutional Neural Networks",
 	"scripts": {},
-	"author": "",
+	"author": "Maria Kang",
 	"license": "",
 	"dependencies": {
 		"body-parser": "1.15.2",
