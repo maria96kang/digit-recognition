@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Itim');
+
 * {
-  font-family: sans-serif;
+	font-family: 'Itim', cursive
 }
 
 body {
-  margin: 0px;
+  	margin: 0px;
+}
+/* https://coolors.co/067bc2-84bcda-ecc30b-f37748-d56062 */
+.header {
+	background-color: rgba(6, 123, 194, 1);
+	color: white;
+	font-family: 'Itim', cursive;
+	font-size: 30px;
+	margin-bottom: 50px; 
+	padding: 35px; 
 }
 
 .block {
@@ -26,17 +37,48 @@ body {
 }
 
 .drawingArea {
-	border: 15px solid rgba(126, 192, 238, 0.7);
+	border: 15px solid rgba(132, 188, 218, 0.7);
+	/* rgba(126, 192, 238, 0.7) */
+	display: inline-block;
 }
 
 .drawingArea:hover {
-	border: 15px solid rgba(126, 192, 238, 1);
+	border: 15px solid rgba(132, 188, 218, 1);
 	cursor: pointer;
 }
 
 .clear-button {
 	color: grey; 
 	cursor: pointer;
+	font-size: 20px;
 	margin-top: 10px; 
 	padding: 5px; 
+}
+
+.result {
+	color: #F37748;
+	padding-top: 20px;
+	text-align: center;
+}
+
+.choosen {
+	background-color: #98CE00;
+}
+
+.percent {
+	background-color: #ECC30B;
+}
+
+.probability {
+	display: inline-block;
+	padding: 10px;
+}
+
+.digit {
+	padding-left: 7px;
+}
+
+
+.footer {
+	padding: 20px;
 }

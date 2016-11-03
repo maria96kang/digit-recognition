@@ -19,7 +19,6 @@ module.exports = {
 	IMAGE_SIZE: 28,
 	initNetwork: function() {
 		var layerDefs = [];
-		
 		layerDefs.push({type:'input', out_sx:24, out_sy:24, out_depth:1});
 		layerDefs.push({type:'conv', sx:5, filters:8, stride:1, pad:2, activation:'relu'});
 		layerDefs.push({type:'pool', sx:2, stride:2});

@@ -23,7 +23,8 @@ var DigitRecognizer = React.createClass({
 	},	
 	getInitialState: function() {
 		return{
-			digit: -1 
+			digit: -1,
+			probability: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] 
 		};
 	},
 	getMousePosition: function(e) {
@@ -64,7 +65,6 @@ var DigitRecognizer = React.createClass({
         if (mouseDown == 1) {
             this.drawCanvas(mouseX, mouseY, 10);
         }
-
 	},
 	onMouseUp: function() {
 		mouseDown = 0;
@@ -76,10 +76,41 @@ var DigitRecognizer = React.createClass({
 		var digitRecognizer = this; 
 		$.post('/guess', {image: dataUrl}, function (data) {
 			console.log(data);
-			digitRecognizer.setState({digit: data.result});
+			digitRecognizer.setState({
+				digit: data.result, 
+				probability: data.probability
+			});
 		});
 	},
+	renderChart: function() {
+		var bars = []
+		var count = 0;
+		for (var prob in this.state.probability) {
+			bars.push(<div className="digit">count<div className="percent">prob</div></div>)
+			count++;
+		}
+		return <div className="content">bars</div>;
+	},
 	render: function() {
+		var digit = this.state.digit;
+		var barChart = this.state.probability.map(function(item, index) {
+			var percent = (item * 100).toFixed(2); 
+			if (digit == index) {
+	      		return (
+	        		<div className="probability">
+	        			<canvas className="choosen" width={25} height={percent / 2.5}></canvas>
+	        			<div className="digit">{index}</div>
+	        		</div>
+	      		);
+      		} else {
+      			return (
+	        		<div className="probability">
+	        			<canvas className="percent" width={25} height={percent / 2.5}></canvas>
+	        			<div className="digit">{index}</div>
+	        		</div>
+	      		);
+      		}
+    	});
 		return(
 			<div className="block">
 				<canvas className="drawingArea" ref="drawingArea"
@@ -90,6 +121,9 @@ var DigitRecognizer = React.createClass({
 				</canvas>
 				<div className="clear-button" onClick={this.clearCanvas}>
 					Clear
+				</div>
+				<div className="result">
+					<div className="chart">{barChart}</div>
 				</div>
 			</div>
 		);

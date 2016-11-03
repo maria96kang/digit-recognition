@@ -52,14 +52,19 @@ exports.guess = function(req, res) {
 		var result = net.forward(input);
 		var bestProb = -1;
 		var bestCandidate = -1;
+		var probability = [];
 		for (var j = 0; j < 10; j++) {
 		  	if (result.w[j] > bestProb) {
 		    	bestProb = result.w[j];
 		    	bestCandidate = j;
 		  	}
 		  	console.log(result.w[j]);
+		  	probability.push(result.w[j])
 		}
-		res.json({result: bestCandidate});
+		res.json({
+			result: bestCandidate,
+			probability: probability
+		});
 	});
 
 };
